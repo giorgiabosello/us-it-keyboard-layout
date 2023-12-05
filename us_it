@@ -1,0 +1,45 @@
+default partial alphanumeric_keys
+
+// Italian keyboard layout for US keyboards (US, intl., with AltGr dead keys)
+//
+// Since the US intl keyboard provide a simple way to only type acute
+// accented vowels, this layout moves the grave accented vowels to the
+// AltGr together with the acute ones.
+
+partial alphanumeric_keys
+xkb_symbols "basic" {
+
+   include "us(intl)"
+   name[Group1]= "Italian (US, intl., with AltGr dead keys)";
+
+// five dead keys moved into level3:
+
+   key <TLDE> { [    grave, asciitilde,  dead_grave,   dead_tilde      ] };
+   key <AC11> { [apostrophe,quotedbl,    dead_acute,   dead_diaeresis  ] };
+
+// diversions from the MS Intl keyboard:
+
+   key <AD02> { [         w,          W,        aacute,           Aacute ] };
+   key <AD03> { [         e,          E,        egrave,           Egrave ] };
+   key <AD07> { [         u,          U,        ugrave,           Ugrave ] };
+   key <AD08> { [         i,          I,        igrave,           Igrave ] };
+   key <AD09> { [         o,          O,        ograve,           Ograve ] };
+   key <AD10> { [         p,          P,        oacute,           Oacute ] };
+
+   key <AC01> { [         a,          A,        agrave,           Agrave ] };
+   key <AC09> { [         l,          L,        lstroke,          Lstroke ] };
+
+   key <AE01> { [         1, exclam,      onesuperior,  exclamdown      ] };
+   key <AD04> { [         r, R,           eacute,       Eacute          ] };
+   key <AC07> { [         j, J,           iacute,       Iacute          ] };
+   key <AB02> { [         x, X,           oe,           OE              ] };
+   key <AB04> { [         v, V,           registered,   registered      ] };
+
+// onequarter etc (not in iso8859-15) moved to get three unshifted deadkeys:
+
+   key <AE06> { [         6, asciicircum, dead_circumflex, onequarter    ] };
+   key <AE07> { [         7, ampersand,   dead_horn,       onehalf       ] };
+   key <AE08> { [         8, asterisk,    dead_ogonek,     threequarters ] };
+
+   include "level3(ralt_switch)"
+};
